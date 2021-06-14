@@ -42,7 +42,7 @@
 <body>
 
 
-  <h1>File Make -> File Download~~</h1>
+  <h1>File Make -- File Download ~~</h1>
     <br>
 
     <input type="text" class="txtIn" placeholder="text for download">
@@ -81,20 +81,13 @@
   sendBtn.addEventListener('click', () => {
         let txtOut = txtIn.value;
         blobArr.push(txtOut);
-        //console.log(blobArr);
 
 
 
         confirm.classList.add('fadeAnim');
         setTimeout(() => {
             confirm.classList.remove('fadeAnim')
-        }, 2000)
-        /*
-        confirm.style.opacity = '1';
-        setTimeout(() => {
-            confirm.style.opacity = '0'
-        }, 1500)
-        */
+        }, 2000);
 
     });
 
