@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>text in ~ text out</title>
+
+    <style>
+        body {
+            background-color: rgb(115, 101, 160);
+            color: rgb(238, 232, 232)
+        }
+
+        .a1 {
+            color: #0000FF;
+            text-decoration: underline;
+        }
+        .a1:hover {
+            color: #FFF;
+        }
+
+        .confirm {
+            color: #000;
+            opacity: 0;
+        }
+
+        .fadeAnim {
+            animation: fadeOut 2s linear;
+        }
+
+        @keyframes fadeOut {
+            0% {opacity: 1;}
+            30% {opacity: .75;}
+            50% {opacity: .50;}
+            75% {opacity: .25;}
+            100% {opacity: 0;}
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+
+  <h1>File Make -> File Download~~</h1>
+    <br>
+
+    <input type="text" class="txtIn" placeholder="text for download">
+    <br>
+    <button type="button" class="sendBtn">!!!</button>
+
+    <br>
+    <h3 class="confirm">text added to download file</h3>
+   
+
+    <br>
+  <a class="a1" download="file1.txt">Download</a>
+
+  
+
+   
+<script>
+
+
+  const txtIn = document.querySelector('.txtIn');
+  const sendBtn = document.querySelector('.sendBtn');
+  let confirm = document.querySelector('.confirm');
+    let blobArr = [];
+
+
+
+  const a1 = document.querySelector('.a1');
+
+
+  a1.addEventListener('click', () => {
+    const blob1 = new Blob([blobArr], {type: 'text/plain'});
+    a1.href = URL.createObjectURL(blob1);
+  })
+
+    
+  sendBtn.addEventListener('click', () => {
+        let txtOut = txtIn.value;
+        blobArr.push(txtOut);
+        //console.log(blobArr);
+
+
+
+        confirm.classList.add('fadeAnim');
+        setTimeout(() => {
+            confirm.classList.remove('fadeAnim')
+        }, 2000)
+        /*
+        confirm.style.opacity = '1';
+        setTimeout(() => {
+            confirm.style.opacity = '0'
+        }, 1500)
+        */
+
+    });
+
+
+
+//download="file1.txt"
+</script>
+    
+
+
+
+
+</body>
+</html>
